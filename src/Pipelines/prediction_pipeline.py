@@ -30,6 +30,7 @@ class predict_pipeline:
         
 class CustomData:
     def __init__(self,
+                 id:int,
                  day:int,
                  pressure:int,
                  maxtemp:float,
@@ -42,6 +43,7 @@ class CustomData:
                  winddirection:float,
                  windspeed:float
                  ):
+        self.id=id
         self.day=day
         self.pressure=pressure
         self.maxtemp=maxtemp
@@ -57,6 +59,7 @@ class CustomData:
     def get_data_as_a_dataframe(self):
         try:
             custom_data_input_dict={
+                'id':[self.id],
                 'day':[self.day],
                 'pressure':[self.pressure],
                 'maxtemp':[self.maxtemp],
